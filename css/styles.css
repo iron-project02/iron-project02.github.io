@@ -24,6 +24,9 @@ h3 {
 h4 {
   font-size: 2vh;
 }
+h5 {
+  font-size: 1.6vh;
+}
 p {
   font-size: 3.1vh;
 }
@@ -103,7 +106,7 @@ header {
   height: 100vh;
   width: 100%;
 }
-header div {
+header .welcome {
   background: rgba(219, 217, 214, 0.5);
   border: 1px solid rgba(255,255,255, 0.5);
   border-radius: 3vw;
@@ -113,18 +116,41 @@ header div {
   top: calc(5vh + 70px);
   right: 10vw;
 }
-header div h1 {
+header .welcome h1 {
   font-size: 5.6vh;
   margin-bottom: 5vh;
   text-align: center;
   text-shadow: 0.3vw 0.3vh 0.2vw var(--neutral);
 }
-header div h1 span.app {
+header .welcome h1 span.app {
   margin-right: 0.5vw;
   text-shadow: 0.3vw 0.3vh 0.2vw var(--neutral);
 }
-header div p {
+header .welcome p {
   text-align: justify;
+}
+header .start {
+  position: absolute;
+  bottom: 10vh;
+  left: 50%;
+  transform: translate(-50%,0)
+}
+header .start a {
+  text-decoration: none;
+}
+header .start a h2 {
+  background: var(--cold);
+  border-radius: 3vw;
+  box-shadow: 0 0 3vw rgba(0,40,86,0.5);
+  color: #fff;
+  display: inline-block;
+  font-size: 4vh;
+  padding: 3vh 3vw;
+}
+header .start a h2:hover {
+  background: var(--neutral);
+  box-shadow: 0 0 3vw rgba(148,192,233,0.6);
+  color: var(--main);
 }
 main {
   flex: 1 0 auto;
@@ -333,38 +359,58 @@ footer article.brand .brand-info a:hover {
   background: var(--neutral);
   color: var(--main);
 }
-footer article.footer-info {
+footer article.info {
   display: flex;
   flex-flow: column wrap;
-  width: 55%;
+  align-items: center;
 }
-footer article.footer-info h4 {
-  margin-bottom: 4vh;
+footer article.info h4.footer-title {
+  margin-bottom: 2vh;
 }
-footer article.footer-info ul {
+footer article.info ul.footer-list {
   list-style: none;
 }
-footer article.footer-info ul li a {
+footer article.info a.footer-anchor {
   color: #fff;
   text-decoration: none;
 }
-footer article.footer-info ul li a:hover {
+footer article.info a.footer-anchor:hover {
   color: var(--neutral);
+}
+footer article.footer-creators {
+  margin-bottom: 5vh;
+  width: 80%;
+}
+footer article.footer-creators ul.footer-list {
+  margin-bottom: 2vh;
+}
+footer article.footer-creators li.footer-items {
+  display: inline-block;
+}
+footer article.footer-creators li.footer-items i {
+  font-size: 2vh;
+  margin-left: 1vw;
+}
+footer article.footer-creators a.footer-anchor:hover i {
+  transform: scale(1.5);
+}
+footer article.footer-info {
+  width: 80%;
 }
 
 @media only screen and (min-width: 992px) {
   p {
     font-size: 2.35vh;
   }
-  header div {
+  header .welcome {
     top: calc(10vh + 70px);
     left: 20vw;
     right: 20vw;
   }
-  header div h1 {
+  header .welcome h1 {
     margin-bottom: 8vh;
   }
-  header div p {
+  header .welcome p {
     text-align: center;
   }
   .find-price div {
@@ -391,18 +437,31 @@ footer article.footer-info ul li a:hover {
   .get-reminders article .reminder-info {
     margin-bottom: 0;
   }
+  .get-reminders article .reminder-wrapper .reminder-alert {
+    padding: 25px;
+  }
   footer {
     flex-flow: row wrap;
     align-items: stretch;
   }
+  footer article.brand,
+  footer article.footer-creators,
+  footer article.footer-info {
+    margin-bottom: 0;
+    width: calc(90% / 3);
+  }
   footer article.brand {
     justify-content: space-between;
-    margin-bottom: 0;
-    width: 30%;
   }
   footer article.brand .brand-logo img {
     border-radius: 0.8vw;
     height: auto;
     width: 100%;
+  }
+  footer article.info {
+    align-items: stretch;
+  }
+  footer article.info h4.footer-title {
+    margin-bottom: 5vh;
   }
 }
